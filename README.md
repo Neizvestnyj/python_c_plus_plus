@@ -21,7 +21,7 @@ Move `recipes/<platform>/py_c_plus_plus_examples` to
 
 **buildozer.spec**
 
-`requirements = kivy==2.0.0, python_c_plus_plus`
+`requirements = kivy==2.0.0, py_c_plus_plus_examples`
 
 ```bash 
 buildozer android debug
