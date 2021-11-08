@@ -1,13 +1,26 @@
-from pythonforandroid.recipe import CythonRecipe, IncludedFilesBehaviour
+from pythonforandroid.recipe import IncludedFilesBehaviour, CppCompiledComponentsPythonRecipe
+
+'''
+using `CppCompiledComponentsPythonRecipe` instead of `CythonRecipe` because he did not work correct
+don't use `install_in_hostpython = True` because it provokes an `setuptools` error
+`import _distutils_hack.override # noqa: f401`
+'''
 
 
-class CPackageRecipe(IncludedFilesBehaviour, CythonRecipe):
-    site_packages_name = 'py_c_plus_plus_examples'
+class CPlusPlusRecipe(IncludedFilesBehaviour, CppCompiledComponentsPythonRecipe):
     version = '0.1'
-    # url = ''
-    src_filename = "py_c_plus_plus_examples"  # path to py_c_plus_plus_examples folder
+    name = 'py_c_plus_plus_examples'
+
+    src_filename = "/home/neizvestnyj/PycharmProjects/cpython_example"
+
     depends = ['setuptools', 'cython']
-    call_hostpython_via_targetpython = False
+
+    call_hostpython_via_targetpython = False  # as default
+
+    def get_recipe_env(self, arch):
+        env = super().get_recipe_env(arch)
+        env['LDFLAGS'] += ' -lc++_shared'
+        return env
 
 
-recipe = CPackageRecipe()
+recipe = CPlusPlusRecipe()
