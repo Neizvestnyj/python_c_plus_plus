@@ -1,14 +1,18 @@
 # https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html
 # https://github.com/Technologicat/setup-template-cython/blob/master/setup.py
 
-from distutils.core import setup
-from distutils.extension import Extension
+from setuptools import setup
+from setuptools.extension import Extension
+
 import sys
 
 try:
     from Cython.Build import cythonize
 except (ImportError, ModuleNotFoundError) as import_cython_error:
-    sys.exit("Cython not found. Cython is needed to build the extension modules.")
+    sys.exit(
+        "Cython not found. Cython is needed to build the extension modules. "
+        "Type: pip install cython or pip install -r requirements.txt"
+    )
 
 __version__ = '0.1'
 __name__ = 'py_c_plus_plus_examples'
