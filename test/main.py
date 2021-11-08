@@ -1,3 +1,5 @@
+# Do not run this file in the project folder, otherwise the folder above will be imported
+
 from py_c_plus_plus_examples import c_date
 from py_c_plus_plus_examples.c_trig import PyTrig, py_sinh_impl, py_cosh_impl, py_tanh_impl, mixed_test, mixed_test2
 
