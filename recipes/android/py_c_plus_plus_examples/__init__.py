@@ -11,7 +11,7 @@ class CPlusPlusRecipe(IncludedFilesBehaviour, CppCompiledComponentsPythonRecipe)
     version = '0.1'
     name = 'py_c_plus_plus_examples'
 
-    src_filename = "/home/neizvestnyj/PycharmProjects/cpython_example"
+    src_filename = "<path_to>/py_c_plus_plus_examples"
 
     depends = ['setuptools', 'cython']
 
