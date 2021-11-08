@@ -43,5 +43,5 @@ setup(name=__name__,
       #   - Cython won't find `.pxd` files inside installed .egg, hard to compile libs depending on this one
       #   - dynamic loader may need to have the library unzipped to a temporary directory anyway (at import time)
       zip_safe=False,
-      python_requires=">=3.0",
+      python_requires=">=3.6",
       )
