@@ -1,0 +1,8 @@
+# dirs
+build
+dist
+py_c_plus_plus_examples.egg-info
+
+# extentions
+.xml
+.iml
