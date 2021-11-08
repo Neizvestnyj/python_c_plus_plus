@@ -36,6 +36,7 @@ setup(name=__name__,
       platforms=['all'],
       license='GPL-3.0 License',
       keywords=["python c++ example using cython"],
+      packages=[__name__],  # it is necessary to add `py_c_plus_plus_examples/__init__.py` to the package folder
       ext_modules=cythonize(extensions),
       install_requires=requirements,
       # Disable zip_safe, because:
