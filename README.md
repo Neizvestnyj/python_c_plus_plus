@@ -27,11 +27,11 @@ Move `recipes/<platform>/py_c_plus_plus_examples` to
 buildozer android debug
 ```
 
-# How to use
+# Usage
 ```python
 from py_c_plus_plus_examples import c_date, c_trig
 
-date = c_date.PyDate(2021, 25, 10)
+date = c_date.PyDate(1997, 31, 12)
 date.print_all()
 print(date.getCurrentDate())
 
