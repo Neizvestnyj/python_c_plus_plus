@@ -21,6 +21,7 @@ and on this [buildozer branch](https://github.com/kivy/buildozer/tree/7cffb89bf5
 
 Work fine in **PyDroid3** and **Termux**
 
+## Build android app
 Move `recipes/<platform>/py_c_plus_plus_examples` to 
 `<AppFolder>/.buildozer/android/platform/python-for-android/pythonforandroid/recipes`
 
