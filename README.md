@@ -16,6 +16,9 @@ pip install https://github.com/Neizvestnyj/python_c_plus_plus/archive/master.zip
 [How use buildozer](https://buildozer.readthedocs.io/en/latest/installation.html) 
 and [python for android](https://python-for-android.readthedocs.io/en/latest/quickstart/)
 
+Tested on this [p4a branch](https://github.com/kivy/python-for-android/tree/2f49cd674a09d6a3b91ae2759653f43ca6cec9dc)
+and on this [buildozer branch](https://github.com/kivy/buildozer/tree/7cffb89bf5597d366cd7b6b531e07dd9c1a5e222)
+
 Move `recipes/<platform>/py_c_plus_plus_examples` to 
 `<AppFolder>/.buildozer/android/platform/python-for-android/pythonforandroid/recipes`
 
