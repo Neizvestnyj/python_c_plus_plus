@@ -2,6 +2,7 @@
 
 from py_c_plus_plus_examples import c_date
 from py_c_plus_plus_examples.c_trig import PyTrig, py_sinh_impl, py_cosh_impl, py_tanh_impl, mixed_test, mixed_test2
+from py_c_plus_plus_examples.c_rect import PyRectangle
 
 print(f'{"#" * 10} C++ date example {"#" * 10}')
 
@@ -40,3 +41,11 @@ print(f'\n{"#" * 5} PyTrig functions that uses cpdef {"#" * 5}')
 print(f'sinh: {py_trig.cp_sinh_impl(2.0)}')
 print(f'cosh: {py_trig.cp_cosh_impl(2.0)}')
 print(f'tanh: {py_trig.cp_tanh_impl(2.0)}')
+
+print(f'\n{"#" * 5} C++ example of Rectangle {"#" * 5}')
+
+py_rect = PyRectangle(1, 2, 3, 4)
+
+print(f'area: {py_rect.get_area()}')
+py_rect.move(1, 2)
+print(f'size: {py_rect.get_size()}')

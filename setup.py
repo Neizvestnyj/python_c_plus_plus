@@ -17,6 +17,22 @@ except (ImportError, ModuleNotFoundError) as import_cython_error:
 __version__ = '0.1'
 __name__ = 'py_c_plus_plus_examples'
 
+DEBUG = False
+
+if DEBUG:
+    import shutil
+    import os
+
+    # remove build dirs
+    rm_dirs = ['build', 'dist', 'py_c_plus_plus_examples.egg-info']
+    for dir_ in rm_dirs:
+        try:
+            if os.path.exists(dir_):
+                shutil.rmtree(dir_)
+                print(f'{dir_} removed')
+        except Extension as del_err:
+            print(del_err)
+
 with open('requirements.txt') as req_f:
     requirements = []
     lines = req_f.readlines()
@@ -26,6 +42,7 @@ with open('requirements.txt') as req_f:
 extensions = [
     Extension(f'{__name__}.c_date', [f'{__name__}/c_date.pyx']),
     Extension(f'{__name__}.c_trig', [f'{__name__}/c_trig.pyx']),
+    Extension(f'{__name__}.c_rect', [f'{__name__}/c_rect.pyx']),
 ]
 
 setup(name=__name__,

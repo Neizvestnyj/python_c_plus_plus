@@ -1,2 +1,3 @@
 from py_c_plus_plus_examples import c_date
 from py_c_plus_plus_examples import c_trig
+from py_c_plus_plus_examples import c_rect

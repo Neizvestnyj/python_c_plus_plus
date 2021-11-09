@@ -4,6 +4,7 @@ from kivy.uix.popup import Popup
 
 from py_c_plus_plus_examples import c_date
 from py_c_plus_plus_examples.c_trig import PyTrig, py_sinh_impl, py_cosh_impl, py_tanh_impl, mixed_test, mixed_test2
+from py_c_plus_plus_examples.c_rect import PyRectangle
 
 KV = '''
 <MyPopup>:
@@ -75,6 +76,12 @@ class TestApp(App):
         text += f'sinh: {py_trig.cp_sinh_impl(2.0)}\n'
         text += f'cosh: {py_trig.cp_cosh_impl(2.0)}\n'
         text += f'tanh: {py_trig.cp_tanh_impl(2.0)}\n'
+
+        text += f'\n{"#" * 5} C++ example of Rectangle {"#" * 5}\n'
+        py_rect = PyRectangle(1, 2, 3, 4)
+
+        text += f'area: {py_rect.get_area()}\n'
+        text += f'size: {py_rect.get_size()}\n'
 
         self.popup.ids.lbl.text = text
 
