@@ -2,7 +2,7 @@
 
 # Installation:
 ```bash
-git clone https://github.com/Neizvestnyj/python_c_plus_plus
+git clone --recursive https://github.com/Neizvestnyj/python_c_plus_plus
 cd python_c_plus_plus
 python3 setup.py install
 ```
