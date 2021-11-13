@@ -51,4 +51,4 @@ print(f'area: {py_rect.get_area()}')
 py_rect.move(1, 2)
 print(f'size: {py_rect.get_size()}')
 
-PyDlibLandmark().run("<path>/shape_predictor_68_face_landmarks.dat".encode(), "<path>/face.<extension>".encode())
+# PyDlibLandmark().run("<path>/shape_predictor_68_face_landmarks.dat".encode(), "<path>/face.<extension>".encode())
