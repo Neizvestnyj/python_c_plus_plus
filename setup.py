@@ -1,8 +1,7 @@
 # https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html
 # https://github.com/Technologicat/setup-template-cython/blob/master/setup.py
 
-from setuptools import setup
-from setuptools.extension import Extension
+from setuptools import setup, Extension
 
 import sys
 
@@ -30,7 +29,7 @@ if DEBUG:
             if os.path.exists(dir_):
                 shutil.rmtree(dir_)
                 print(f'{dir_} removed')
-        except Extension as del_err:
+        except Exception as del_err:
             print(del_err)
 
 with open('requirements.txt') as req_f:
@@ -43,6 +42,13 @@ extensions = [
     Extension(f'{__name__}.c_date', [f'{__name__}/c_date.pyx']),
     Extension(f'{__name__}.c_trig', [f'{__name__}/c_trig.pyx']),
     Extension(f'{__name__}.c_rect', [f'{__name__}/c_rect.pyx']),
+    Extension(
+        f'{__name__}.c_dlib', [f'{__name__}/c_dlib.pyx'],
+        language="c++",
+        extra_compile_args=['-std=c++11', '-ljpeg', '-lpng'],
+        library_dirs=[],
+        libraries=["dlib"],
+    ),
 ]
 
 setup(name=__name__,

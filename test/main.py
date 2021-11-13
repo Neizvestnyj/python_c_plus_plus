@@ -3,6 +3,7 @@
 from py_c_plus_plus_examples import c_date
 from py_c_plus_plus_examples.c_trig import PyTrig, py_sinh_impl, py_cosh_impl, py_tanh_impl, mixed_test, mixed_test2
 from py_c_plus_plus_examples.c_rect import PyRectangle
+from py_c_plus_plus_examples.c_dlib import PyDlibLandmark
 
 print(f'{"#" * 10} C++ date example {"#" * 10}')
 
@@ -49,3 +50,5 @@ py_rect = PyRectangle(1, 2, 3, 4)
 print(f'area: {py_rect.get_area()}')
 py_rect.move(1, 2)
 print(f'size: {py_rect.get_size()}')
+
+PyDlibLandmark().run("<path>/shape_predictor_68_face_landmarks.dat".encode(), "<path>/face.<extension>".encode())

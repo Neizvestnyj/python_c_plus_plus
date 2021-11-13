@@ -5,6 +5,7 @@ from kivy.uix.popup import Popup
 from py_c_plus_plus_examples import c_date
 from py_c_plus_plus_examples.c_trig import PyTrig, py_sinh_impl, py_cosh_impl, py_tanh_impl, mixed_test, mixed_test2
 from py_c_plus_plus_examples.c_rect import PyRectangle
+from py_c_plus_plus_examples.c_dlib import PyDlibLandmark
 
 KV = '''
 <MyPopup>:
@@ -82,6 +83,9 @@ class TestApp(App):
 
         text += f'area: {py_rect.get_area()}\n'
         text += f'size: {py_rect.get_size()}\n'
+
+        # PyDlibLandmark().run("<path>/shape_predictor_68_face_landmarks.dat".encode(),
+        #                      "<path>/face.<extension>".encode())
 
         self.popup.ids.lbl.text = text
 
