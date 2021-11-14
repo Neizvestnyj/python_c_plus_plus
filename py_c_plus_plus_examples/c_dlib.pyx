@@ -3,11 +3,11 @@
 from libcpp.vector cimport vector
 from libcpp.pair cimport pair
 
-cdef extern from "c_dlib/face_landmark_detection.cpp":
+cdef extern from "c_dlib/c_src/face_landmark_detection.cpp":
     pass
 
 
-cdef extern from "c_dlib/face_landmark_detection.h":
+cdef extern from "c_dlib/c_src/face_landmark_detection.h":
     cdef cppclass DlibLandmark:
         DlibLandmark() except +
         vector[pair[int, int]] run(char*, char*)

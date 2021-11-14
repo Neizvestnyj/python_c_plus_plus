@@ -1,3 +1,3 @@
-[submodule "py_c_plus_plus_examples/c_dlib/dlib"]
-	path = py_c_plus_plus_examples/c_dlib/dlib
+[submodule "py_c_plus_plus_examples/c_dlib/c_src/dlib"]
+	path = py_c_plus_plus_examples/c_dlib/c_src/dlib
 	url = https://github.com/davisking/dlib
