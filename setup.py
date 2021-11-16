@@ -6,6 +6,7 @@ from setuptools import setup, Extension
 import sys
 import os
 from pathlib import Path
+import shutil
 import platform
 
 try:
@@ -25,11 +26,9 @@ py_c_plus_plus_examples_dir = os.path.join(current_dir, __name__)
 DEBUG = False
 
 if DEBUG:
-    import shutil
-    import os
-
     # remove build dirs
     rm_dirs = ['build', 'dist', 'py_c_plus_plus_examples.egg-info']
+
     for dir_ in rm_dirs:
         dir_ = os.path.join(current_dir, dir_)
 
