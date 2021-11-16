@@ -4,6 +4,8 @@
 from setuptools import setup, Extension
 
 import sys
+import os
+from pathlib import Path
 import platform
 
 try:
@@ -17,6 +19,9 @@ except (ImportError, ModuleNotFoundError) as import_cython_error:
 __version__ = '0.1'
 __name__ = 'py_c_plus_plus_examples'
 
+current_dir = Path(__file__).absolute().parent
+py_c_plus_plus_examples_dir = os.path.join(current_dir, __name__)
+
 DEBUG = False
 
 if DEBUG:
@@ -26,6 +31,8 @@ if DEBUG:
     # remove build dirs
     rm_dirs = ['build', 'dist', 'py_c_plus_plus_examples.egg-info']
     for dir_ in rm_dirs:
+        dir_ = os.path.join(current_dir, dir_)
+
         try:
             if os.path.exists(dir_):
                 shutil.rmtree(dir_)
@@ -38,18 +45,19 @@ if platform.system() in ['Windows']:
 else:
     extra_compile_args = ['-std=c++11', '-ljpeg', '-lpng']
 
-with open('requirements.txt') as req_f:
+with open(os.path.join(current_dir, 'requirements.txt')) as req_f:
     requirements = []
     lines = req_f.readlines()
+
     for line in lines:
         requirements.append(line.replace('\n', '').strip())
 
 extensions = [
-    Extension(f'{__name__}.c_date', [f'{__name__}/c_date.pyx']),
-    Extension(f'{__name__}.c_trig', [f'{__name__}/c_trig.pyx']),
-    Extension(f'{__name__}.c_rect', [f'{__name__}/c_rect.pyx']),
+    Extension(f'{__name__}.c_date', [f'{py_c_plus_plus_examples_dir}/c_date.pyx']),
+    Extension(f'{__name__}.c_trig', [f'{py_c_plus_plus_examples_dir}/c_trig.pyx']),
+    Extension(f'{__name__}.c_rect', [f'{py_c_plus_plus_examples_dir}/c_rect.pyx']),
     Extension(
-        f'{__name__}.c_dlib', [f'{__name__}/c_dlib.pyx'],
+        f'{__name__}.c_dlib', [f'{py_c_plus_plus_examples_dir}/c_dlib.pyx'],
         language="c++",
         extra_compile_args=extra_compile_args,
         library_dirs=[],
@@ -65,7 +73,8 @@ setup(name=__name__,
       platforms=['all'],
       license='GPL-3.0 License',
       keywords=["python c++ example using cython"],
-      packages=[__name__],  # it is necessary to add `py_c_plus_plus_examples/__init__.py` to the package folder
+      # it is necessary to add `py_c_plus_plus_examples/__init__.py` to the package folder
+      packages=[py_c_plus_plus_examples_dir],
       ext_modules=cythonize(extensions),
       install_requires=requirements,
       # Disable zip_safe, because:
