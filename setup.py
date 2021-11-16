@@ -4,6 +4,7 @@
 from setuptools import setup, Extension
 
 import sys
+import platform
 
 try:
     from Cython.Build import cythonize
@@ -32,6 +33,11 @@ if DEBUG:
         except Exception as del_err:
             print(del_err)
 
+if platform.system() in ['Windows']:
+    extra_compile_args = []
+else:
+    extra_compile_args = ['-std=c++11', '-ljpeg', '-lpng']
+
 with open('requirements.txt') as req_f:
     requirements = []
     lines = req_f.readlines()
@@ -45,7 +51,7 @@ extensions = [
     Extension(
         f'{__name__}.c_dlib', [f'{__name__}/c_dlib.pyx'],
         language="c++",
-        extra_compile_args=['-std=c++11', '-ljpeg', '-lpng'],
+        extra_compile_args=extra_compile_args,
         library_dirs=[],
         libraries=["dlib"],
     ),
