@@ -6,7 +6,6 @@ from setuptools import setup, Extension
 import sys
 import os
 from pathlib import Path
-import shutil
 import platform
 
 try:
@@ -22,13 +21,16 @@ __name__ = 'py_c_plus_plus_examples'
 
 current_dir = Path(__file__).absolute().parent
 py_c_plus_plus_examples_dir = os.path.join(current_dir, __name__)
+print(py_c_plus_plus_examples_dir)
 
 DEBUG = False
 
 if DEBUG:
+    import shutil
+    import os
+
     # remove build dirs
     rm_dirs = ['build', 'dist', 'py_c_plus_plus_examples.egg-info']
-
     for dir_ in rm_dirs:
         dir_ = os.path.join(current_dir, dir_)
 
@@ -63,6 +65,9 @@ extensions = [
         libraries=["dlib"],
     ),
 ]
+
+for e in extensions:
+    e.cython_directives = {'language_level': "3"}  # all are Python-3
 
 setup(name=__name__,
       version=__version__,
