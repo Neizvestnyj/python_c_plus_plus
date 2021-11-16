@@ -16,6 +16,7 @@ class CPlusPlusRecipe(IncludedFilesBehaviour, CppCompiledComponentsPythonRecipe)
     depends = ['setuptools', 'cython']
 
     call_hostpython_via_targetpython = False  # as default
+    install_in_hostpython = False
 
     def get_recipe_env(self, arch):
         env = super().get_recipe_env(arch)
