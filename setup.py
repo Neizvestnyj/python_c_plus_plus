@@ -60,7 +60,7 @@ extensions = [
     Extension(
         f'{__name__}.c_dlib', [f'{py_c_plus_plus_examples_dir}/c_dlib.pyx'],
         extra_compile_args=extra_compile_args,
-        library_dirs=[],
+        library_dirs=[],  # path to .a or .so file(s)
         libraries=["dlib"],
     ),
 ]
