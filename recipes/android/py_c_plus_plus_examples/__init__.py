@@ -10,13 +10,10 @@ don't use `install_in_hostpython = True` because it provokes an `setuptools` err
 class CPlusPlusRecipe(IncludedFilesBehaviour, CppCompiledComponentsPythonRecipe):
     version = '0.1'
     name = 'py_c_plus_plus_examples'
-
+    url = None
     src_filename = "<path_to>/py_c_plus_plus_examples"
 
     depends = ['setuptools', 'cython']
-
-    call_hostpython_via_targetpython = False  # as default
-    install_in_hostpython = False
 
     def get_recipe_env(self, arch):
         env = super().get_recipe_env(arch)
