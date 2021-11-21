@@ -23,7 +23,7 @@ current_dir = Path(__file__).absolute().parent
 py_c_plus_plus_examples_dir = os.path.join(current_dir, __name__)
 print(py_c_plus_plus_examples_dir)
 
-DEBUG = True
+DEBUG = False
 
 if DEBUG:
     import shutil
