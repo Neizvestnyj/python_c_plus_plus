@@ -21,7 +21,7 @@ __name__ = 'py_c_plus_plus_examples'
 
 current_dir = Path(__file__).absolute().parent
 py_c_plus_plus_examples_dir = os.path.join(current_dir, __name__)
-print(py_c_plus_plus_examples_dir)
+print(f"py_c_plus_plus_examples_dir: {py_c_plus_plus_examples_dir}")
 
 DEBUG = False
 
@@ -78,7 +78,7 @@ setup(name=__name__,
       license='GPL-3.0 License',
       keywords=["python c++ example using cython"],
       # it is necessary to add `py_c_plus_plus_examples/__init__.py` to the package folder
-      packages=[py_c_plus_plus_examples_dir],
+      packages=[__name__],
       ext_modules=cythonize(extensions),
       install_requires=requirements,
       # Disable zip_safe, because:
