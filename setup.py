@@ -23,7 +23,7 @@ current_dir = Path(__file__).absolute().parent
 py_c_plus_plus_examples_dir = os.path.join(current_dir, __name__)
 print(py_c_plus_plus_examples_dir)
 
-DEBUG = False
+DEBUG = True
 
 if DEBUG:
     import shutil
@@ -59,7 +59,6 @@ extensions = [
     Extension(f'{__name__}.c_rect', [f'{py_c_plus_plus_examples_dir}/c_rect.pyx']),
     Extension(
         f'{__name__}.c_dlib', [f'{py_c_plus_plus_examples_dir}/c_dlib.pyx'],
-        language="c++",
         extra_compile_args=extra_compile_args,
         library_dirs=[],
         libraries=["dlib"],
@@ -68,6 +67,7 @@ extensions = [
 
 for e in extensions:
     e.cython_directives = {'language_level': "3"}  # all are Python-3
+    e.language = "c++"
 
 setup(name=__name__,
       version=__version__,

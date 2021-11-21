@@ -1,5 +1,3 @@
-# distutils: language = c++
-
 cdef extern from "c_rect/c_src/Rectangle.cpp":
     pass
 

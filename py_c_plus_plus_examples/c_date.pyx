@@ -1,5 +1,3 @@
-# distutils: language = c++
-
 cdef extern from "c_date/c_src/date.cpp":
     pass
 
