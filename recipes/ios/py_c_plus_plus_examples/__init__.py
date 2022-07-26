@@ -1,4 +1,4 @@
-from pythonforandroid.recipe import CythonRecipe
+from kivy_ios.recipe import CythonRecipe
 
 
 class CPackageRecipe(CythonRecipe):
